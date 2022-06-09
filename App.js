@@ -5,6 +5,8 @@ import { StyleSheet, Text, View, FlatList, TouchableOpacity } from "react-native
 import { createStackNavigator, HeaderTitle } from "@react-navigation/stack";
 import { Entypo } from "@expo/vector-icons";
 import * as SQLite from "expo-sqlite";
+import NotesStack from "./screens/NotesStack";
+import AddScreen from "./screens/AddScreen";
 
 const db = SQLite.openDatabase("notes.db");
 
@@ -63,24 +65,13 @@ const Stack = createStackNavigator();
 export default function App() {
  return (
    <NavigationContainer>
-     <Stack.Navigator>
+     <Stack.Navigator mode="modal" headerMode="none">
        <Stack.Screen
-         name="Notes"
-         component={NotesScreen}
-         options={{
-           headerTitle: "Notes App",
-           headerTitleStyle: {
-             fontWeight: "bold",
-             fontSize: 30,
-           },
-           headerStyle: {
-             height: 120,
-             backgroundColor: "yellow",
-             borderBottomColor: "#ccc",
-             borderBottomWidth: 1,
-           },
-         }}
+         name="Notes Stack"
+         component={NotesStack}
+         options={{headerShown:false}}
        />
+        <Stack.Screen name="Add Note" component={AddScreen} />
      </Stack.Navigator>
    </NavigationContainer>
  );
