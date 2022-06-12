@@ -8,9 +8,6 @@ import {
   TouchableOpacity,
   TextInput,
 } from "react-native";
-import { createStackNavigator } from "@react-navigation/stack";
-import NotesScreen from "./NotesScreen";
-import NotesStack from "./NotesStack";
 
 export default function AddScreen({ navigation, route }) {
   const [text, setText] = useState("");

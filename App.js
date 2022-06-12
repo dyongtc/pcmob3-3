@@ -65,9 +65,10 @@ const Stack = createStackNavigator();
 export default function App() {
  return (
    <NavigationContainer>
-     <Stack.Navigator mode="modal" headerMode="none">
+     <Stack.Navigator>
        <Stack.Screen
          name="Notes Stack"
+         presentation="modal"
          component={NotesStack}
          options={{headerShown:false}}
        />
